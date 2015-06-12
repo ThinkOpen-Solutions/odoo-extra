@@ -713,6 +713,11 @@ class runbot_build(osv.osv):
                 if not os.path.exists(datadir):
                     os.mkdir(datadir)
                 cmd += ["--data-dir", datadir]
+            cmd += [
+                '--dbhost', config['dbhost'],
+                '--dbuser', config['dbuser'],
+                '--dbport', config['dbport'],
+            ]
 
         # coverage
         #coverage_file_path=os.path.join(log_path,'coverage.pickle')
